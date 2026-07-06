@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Andri Mariyanto</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --surface: #111827;
+    --surface2: #1a2236;
+    --border: #1e3050;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-muted: #475569;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Inter', sans-serif;
+    --display: 'Space Grotesk', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── GRID LAYOUT ── */
+  .cv-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 40px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,212,255,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 60% at 10% 20%, rgba(124,58,237,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .label-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 15px;
+    color: var(--text-dim);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .contact-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent3);
+    flex-shrink: 0;
+  }
+
+  .exp-badge {
+    background: linear-gradient(135deg, rgba(0,212,255,0.12), rgba(124,58,237,0.12));
+    border: 1px solid rgba(0,212,255,0.25);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .exp-badge .num {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+
+  .exp-badge .sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── LAYOUT: MAIN + SIDEBAR ── */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ── SECTION BASE ── */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .section:last-child { margin-bottom: 0; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .icon-blue  { background: rgba(0,212,255,0.12);  border: 1px solid rgba(0,212,255,0.2); }
+  .icon-purple{ background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.2); }
+  .icon-green { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.2); }
+  .icon-amber { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.2); }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.75;
+  }
+
+  /* ── EXPERIENCE ── */
+  .job {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  .job:last-child { margin-bottom: 0; }
+
+  .job::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: -20px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .job:last-child::before { display: none; }
+
+  .job-dot {
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 8px rgba(0,212,255,0.5);
+  }
+
+  .job-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+
+  .job-company {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .job-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-size: 12.5px;
+    color: var(--accent3);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .job-location {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-family: var(--mono);
+  }
+
+  .job ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .job ul li {
+    font-size: 13px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 8px;
+    line-height: 1.55;
+  }
+
+  .job ul li::before {
+    content: '›';
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 1.3;
+    flex-shrink: 0;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar .section { margin-bottom: 20px; }
+
+  /* ── SKILLS ── */
+  .skill-item {
+    margin-bottom: 14px;
+  }
+
+  .skill-item:last-child { margin-bottom: 0; }
+
+  .skill-name {
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-name span {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 0.6s ease;
+  }
+
+  /* ── CERTS ── */
+  .cert-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: var(--surface2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .cert-item:last-child { margin-bottom: 0; }
+
+  .cert-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .cert-name {
+    font-size: 12.5px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .cert-issuer {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── TOOLS ── */
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+  }
+
+  .tag-blue   { background: rgba(0,212,255,0.08);  border: 1px solid rgba(0,212,255,0.2);  color: #67e8f9; }
+  .tag-purple { background: rgba(124,58,237,0.1);  border: 1px solid rgba(124,58,237,0.25); color: #c4b5fd; }
+  .tag-green  { background: rgba(16,185,129,0.09); border: 1px solid rgba(16,185,129,0.22); color: #6ee7b7; }
+  .tag-amber  { background: rgba(245,158,11,0.09); border: 1px solid rgba(245,158,11,0.22); color: #fcd34d; }
+
+  /* ── EDUCATION ── */
+  .edu-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .edu-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .edu-degree {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .edu-field {
+    font-size: 12.5px;
+    color: var(--accent);
+  }
+
+  /* ── SOFT SKILLS ── */
+  .soft-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .soft-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+
+  .soft-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER STRIP ── */
+  .footer-strip {
+    margin-top: 28px;
+    padding: 16px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .footer-strip p {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer-strip .status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent3);
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent3);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  /* ── PHOTO ── */
+  .photo-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .photo-frame {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 0 24px rgba(0,212,255,0.3);
+    flex-shrink: 0;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--bg);
+    display: block;
+  }
+
+  .photo-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── LANGUAGE TOGGLE ── */
+  .lang-toggle {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    z-index: 999;
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 4px;
+    gap: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  .lang-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-dim);
+    background: transparent;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .lang-btn .flag {
+    font-size: 14px;
+  }
+
+  .lang-btn.active {
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0,212,255,0.35);
+  }
+
+  .lang-btn:not(.active):hover {
+    color: var(--text);
+    background: var(--surface2);
+  }
+
+  @media print {
+    .lang-toggle { display: none !important; }
+  }
+
+  @media (max-width: 720px) {
+    .lang-toggle { bottom: 20px; left: 20px; }
+    .download-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 12px; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .body-grid      { grid-template-columns: 1fr; }
+    .hero-grid      { grid-template-columns: 1fr; }
+    .photo-frame    { width: 80px; height: 80px; }
+    .exp-badge      { text-align: left; }
+    .hero h1        { font-size: 30px; }
+    .soft-grid      { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; }
+    .hero, .section { border: 1px solid #ddd; background: #fff; }
+    .hero h1 { color: #111; }
+    .section-title { color: #111; }
+  }
+
+  /* ── DOWNLOAD BUTTON ── */
+  .download-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 14px 24px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(0,212,255,0.35), 0 2px 8px rgba(0,0,0,0.4);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,212,255,0.45), 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .download-btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .download-btn .btn-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .download-btn .btn-ping {
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    border: 2px solid rgba(0,212,255,0.5);
+    animation: ping 2s ease-in-out infinite;
+  }
+
+  @keyframes ping {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    70%  { transform: scale(1.15); opacity: 0; }
+    100% { transform: scale(1.15); opacity: 0; }
+  }
+
+  @media print {
+    .download-btn { display: none !important; }
+    body { background: #fff !important; }
+    .hero, .section { background: #fff !important; border: 1px solid #ddd !important; box-shadow: none !important; }
+    .hero h1, .section-title, .job-company, .edu-degree { color: #111 !important; }
+    .hero-title, .profile-text, .job ul li, .contact-item, .skill-name, .cert-name, .soft-item { color: #333 !important; }
+    .label-tag, .job-period, .job-role, .edu-field, .contact-item .dot, .pulse { color: #555 !important; }
+    .skill-fill { background: #555 !important; }
+    .tag { border: 1px solid #aaa !important; background: #f5f5f5 !important; color: #333 !important; }
+    .cert-item { background: #f9f9f9 !important; border: 1px solid #ddd !important; }
+    .exp-badge { background: #f0f4ff !important; border: 1px solid #c0c8e0 !important; }
+    .exp-badge .num { color: #1a56db !important; }
+    .hero::before { display: none; }
+    .footer-strip { background: #f9f9f9 !important; border-color: #ddd !important; }
+    .job::before { background: #1a56db !important; }
+    .job-dot { background: #1a56db !important; box-shadow: none !important; }
+    @page { margin: 12mm 10mm; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="cv-wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="photo-wrap">
+        <div class="photo-frame">
+          <img src="data:image/jpeg;base64,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" alt="Andri Mariyanto">
+        </div>
+        <span class="photo-label">IT Professional</span>
+      </div>
+      <div>
+        <div class="label-tag">// curriculum vitae</div>
+        <h1>Andri <span>Mariyanto</span></h1>
+        <p class="hero-title" data-id="Senior IT Support &amp; Sistem Jaringan" data-en="Senior IT Support &amp; Network Systems Professional">Senior IT Support &amp; Network Systems Professional</p>
+        <div class="contact-row">
+          <div class="contact-item"><span class="dot"></span>085329040170</div>
+          <div class="contact-item"><span class="dot"></span>andri.mariyanto@gmail.com</div>
+          <div class="contact-item"><span class="dot"></span><span data-id="Bekasi, Jawa Barat" data-en="Bekasi, West Java">Bekasi, Jawa Barat</span></div>
+        </div>
+      </div>
+      <div class="exp-badge">
+        <span class="num">16+</span>
+        <span class="sub" data-id="Tahun<br>Pengalaman" data-en="Years<br>Experience">Years<br>Experience</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-grid">
+
+    <!-- MAIN COLUMN -->
+    <div class="main">
+
+      <!-- PROFILE -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-blue">⚡</div>
+          <h2 class="section-title" data-id="Profil Singkat" data-en="Professional Summary">Profil Singkat</h2>
+        </div>
+        <p class="profile-text" id="profile-text"></p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-blue">💼</div>
+          <h2 class="section-title" data-id="Pengalaman Kerja" data-en="Work Experience">Pengalaman Kerja</h2>
+        </div>
+
+        <!-- 1. Automation System Engineer -->
+        <div class="job">
+          <div class="job-dot" style="background:#00d4ff; box-shadow:0 0 10px rgba(0,212,255,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Unilever Indonesia</span>
+            <span class="job-period" data-id="Jan 2020 — Des 2025 · 6 thn" data-en="Jan 2020 — Dec 2025 · 6 yrs">Jan 2020 — Des 2025 · 6 thn</span>
+          </div>
+          <div class="job-role" style="color:#00d4ff">Automation System Engineer</div>
+          <div class="job-location" data-id="📍 Cikarang Barat, Jawa Barat · Di lokasi" data-en="📍 Cikarang Barat, West Java · On-site">📍 Cikarang Barat, Jawa Barat · Di lokasi</div>
+          <ul id="job-ul-1">
+            <li>Supervising team members in system development and logistics automation projects</li>
+            <li>Managing and optimizing Manufacturing Execution Systems (MES) and other production systems</li>
+            <li>Developing and maintaining web-based applications and databases to support manufacturing operations</li>
+            <li>Developing and improving autonomous vehicles (AGV) for logistics automation in production areas</li>
+            <li>Monitoring and optimizing system integration between automation systems, servers, and network infrastructure</li>
+            <li>Managing and maintaining LAN network infrastructure and IP configuration in the production building</li>
+            <li>Supporting IT security management and system access permissions</li>
+            <li>Preparing weekly and monthly reports related to system, infrastructure, and automation improvements</li>
+          </ul>
+        </div>
+
+        <!-- 2. System & IT Support Engineer -->
+        <div class="job">
+          <div class="job-dot" style="background:#818cf8; box-shadow:0 0 10px rgba(129,140,248,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Unilever Indonesia</span>
+            <span class="job-period" data-id="Nov 2018 — Des 2020 · 2 thn 2 bln" data-en="Nov 2018 — Dec 2020 · 2 yrs 2 mo">Nov 2018 — Des 2020 · 2 thn 2 bln</span>
+          </div>
+          <div class="job-role" style="color:#818cf8">System &amp; IT Support Engineer</div>
+          <div class="job-location" data-id="📍 Cikarang Barat, Jawa Barat · Di lokasi" data-en="📍 Cikarang Barat, West Java · On-site">📍 Cikarang Barat, Jawa Barat · Di lokasi</div>
+          <ul id="job-ul-2">
+            <li>Maintaining and troubleshooting computer hardware and software used in production</li>
+            <li>Managing and supporting LAN network infrastructure and IP address configuration in production area</li>
+            <li>Monitoring and maintaining local web servers and database servers to ensure system stability</li>
+            <li>Providing technical support for users related to system, network, and application issues</li>
+            <li>Supporting IT security management, including software permissions and user access</li>
+            <li>Assisting in the maintenance and optimization of production IT systems</li>
+            <li>Preparing periodic reports related to system performance and infrastructure status</li>
+          </ul>
+        </div>
+
+        <!-- 3. Maintenance Automation Specialist -->
+        <div class="job">
+          <div class="job-dot" style="background:#f59e0b; box-shadow:0 0 10px rgba(245,158,11,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Unilever Indonesia</span>
+            <span class="job-period" data-id="Des 2016 — Okt 2018 · 1 thn 11 bln" data-en="Dec 2016 — Oct 2018 · 1 yr 11 mo">Des 2016 — Okt 2018 · 1 thn 11 bln</span>
+          </div>
+          <div class="job-role" style="color:#f59e0b">Maintenance Automation Specialist</div>
+          <div class="job-location" data-id="📍 Cikarang Barat, Jawa Barat · Di lokasi" data-en="📍 Cikarang Barat, West Java · On-site">📍 Cikarang Barat, Jawa Barat · Di lokasi</div>
+          <ul id="job-ul-3">
+            <li>Performing routine maintenance to prevent machine damage and production downtime</li>
+            <li>Analyzing and identifying root causes of machine problems for permanent resolution</li>
+            <li>Monitoring machine condition and performance during operation</li>
+            <li>Checking and replacing necessary spare parts as per maintenance schedule</li>
+            <li>Recording and reporting machine maintenance and repair activities</li>
+          </ul>
+        </div>
+
+        <!-- 4. Electrical Technician (IT Support) -->
+        <div class="job">
+          <div class="job-dot" style="background:#10b981; box-shadow:0 0 10px rgba(16,185,129,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Unilever Indonesia</span>
+            <span class="job-period" data-id="Apr 2011 — Nov 2016 · 5 thn 8 bln" data-en="Apr 2011 — Nov 2016 · 5 yrs 8 mo">Apr 2011 — Nov 2016 · 5 thn 8 bln</span>
+          </div>
+          <div class="job-role" style="color:#10b981">Electrical Technician &amp; IT Support</div>
+          <div class="job-location" data-id="📍 Bekasi, Jawa Barat" data-en="📍 Bekasi, West Java">📍 Bekasi, Jawa Barat</div>
+          <ul id="job-ul-4">
+            <li>Maintenance dan troubleshooting software dan hardware skala enterprise</li>
+            <li>Instalasi sistem operasi, aplikasi, dan pembaruan perangkat lunak</li>
+            <li>Monitoring performa sistem dan jaringan untuk kelangsungan operasional</li>
+            <li>Backup data dan memastikan keamanan sistem sesuai kebijakan perusahaan</li>
+            <li>Keahlian: Industrial Automation · Electrical Engineering</li>
+          </ul>
+        </div>
+
+        <!-- 5. Samsung -->
+        <div class="job">
+          <div class="job-dot" style="background:#7c3aed; box-shadow:0 0 10px rgba(124,58,237,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Samsung Electronics Indonesia</span>
+            <span class="job-period" data-id="Sep 2010 — Sep 2011 · 1 thn 1 bln" data-en="Sep 2010 — Sep 2011 · 1 yr 1 mo">Sep 2010 — Sep 2011 · 1 thn 1 bln</span>
+          </div>
+          <div class="job-role" style="color:#c4b5fd">Network Support Specialist</div>
+          <div class="job-location" data-id="📍 Bekasi, Jawa Barat · Di lokasi" data-en="📍 Bekasi, West Java · On-site">📍 Bekasi, Jawa Barat · Di lokasi</div>
+          <ul id="job-ul-5">
+            <li>Perawatan dan perbaikan hardware komputer dan perangkat IT</li>
+            <li>Troubleshooting kerusakan perangkat keras secara sistematis</li>
+            <li>Bekerja sebagai Teknisi Jaringan dan Pemeliharaan PC</li>
+            <li>Memberikan dukungan teknis kepada pengguna internal perusahaan</li>
+          </ul>
+        </div>
+
+        <!-- 6. Kalbe Farma -->
+        <div class="job" style="margin-bottom:0">
+          <div class="job-dot" style="background:#06b6d4; box-shadow:0 0 10px rgba(6,182,212,0.6)"></div>
+          <div class="job-header">
+            <span class="job-company">PT Kalbe Farma Tbk</span>
+            <span class="job-period" data-id="Jun 2009 — Sep 2010 · 1 thn 4 bln" data-en="Jun 2009 — Sep 2010 · 1 yr 4 mo">Jun 2009 — Sep 2010 · 1 thn 4 bln</span>
+          </div>
+          <div class="job-role" style="color:#67e8f9" data-id="Machine Operator &amp; Teknisi Produksi" data-en="Machine Operator &amp; Production Technician">Machine Operator &amp; Teknisi Produksi</div>
+          <div class="job-location" data-id="📍 Bekasi, Jawa Barat" data-en="📍 Bekasi, West Java">📍 Bekasi, Jawa Barat</div>
+          <ul id="job-ul-6">
+            <li>Bekerja sebagai Teknisi sekaligus Operator Mesin Blister Injection</li>
+            <li>Mengoperasikan mesin produksi sesuai standar kualitas internasional</li>
+            <li>Melakukan Quality Control (QC) pada mesin dan hasil produksi</li>
+            <li>Memastikan mesin berjalan aman (safety) dan sesuai prosedur kerja</li>
+            <li>Mengidentifikasi dan melaporkan potensi kerusakan atau ketidaksesuaian kualitas</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- KEY COMPETENCIES -->
+      <div class="section" style="margin-bottom:0">
+        <div class="section-header">
+          <div class="section-icon icon-purple">🔧</div>
+          <h2 class="section-title" data-id="Kompetensi Unggulan" data-en="Key Competencies">Kompetensi Unggulan</h2>
+        </div>
+        <div class="tag-cloud">
+          <span class="tag tag-blue">VMware Virtualization</span>
+          <span class="tag tag-blue">Server Migration</span>
+          <span class="tag tag-blue">Network Systems</span>
+          <span class="tag tag-blue">IT Troubleshooting</span>
+          <span class="tag tag-purple">Automation Control System</span>
+          <span class="tag tag-purple">Commissioning Process</span>
+          <span class="tag tag-purple">Robot AGV Loading</span>
+          <span class="tag tag-purple">SCADA / PLC</span>
+          <span class="tag tag-green">Quality Control</span>
+          <span class="tag tag-green">Machine Safety</span>
+          <span class="tag tag-green">Hardware Maintenance</span>
+          <span class="tag tag-amber">Management Planning</span>
+          <span class="tag tag-amber">Public Speaking</span>
+          <span class="tag tag-amber">Leadership</span>
+          <span class="tag tag-amber" data-id="Bahasa Inggris" data-en="English">Bahasa Inggris</span>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-purple">🎓</div>
+          <h2 class="section-title" data-id="Pendidikan" data-en="Education">Pendidikan</h2>
+        </div>
+        <div class="edu-block">
+          <div class="edu-icon">🖥️</div>
+          <div>
+            <div class="edu-degree" data-id="S1 — Strata 1" data-en="Bachelor's Degree (S1)">S1 — Strata 1</div>
+            <div class="edu-field" data-id="Sistem Informasi" data-en="Information Systems">Sistem Informasi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECH SKILLS -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-blue">📊</div>
+          <h2 class="section-title" data-id="Keahlian Teknis" data-en="Technical Skills">Keahlian Teknis</h2>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">IT Support &amp; Hardware <span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Networking &amp; Mikrotik <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">VMware Virtualization <span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Linux Administration <span>Intermediate</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Automation Systems <span>Intermediate</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Quality Control / Safety <span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%; background: linear-gradient(90deg, var(--accent3), #059669)"></div></div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-amber">🏆</div>
+          <h2 class="section-title" data-id="Sertifikasi" data-en="Certifications">Sertifikasi</h2>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">🔵</div>
+          <div>
+            <div class="cert-name">Mikrotik MTCNA</div>
+            <div class="cert-issuer">Mikrotik Academy</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🟣</div>
+          <div>
+            <div class="cert-name">CCNP</div>
+            <div class="cert-issuer">IDN Networks</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🟢</div>
+          <div>
+            <div class="cert-name">Linux Administration</div>
+            <div class="cert-issuer">IDN Networks</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🔷</div>
+          <div>
+            <div class="cert-name">Management Network System</div>
+            <div class="cert-issuer">IDN Networks</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">⚡</div>
+          <div>
+            <div class="cert-name">Teknik Listrik</div>
+            <div class="cert-issuer">Depnaker RI</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOFT SKILLS -->
+      <div class="section" style="margin-bottom:0">
+        <div class="section-header">
+          <div class="section-icon icon-green">🌟</div>
+          <h2 class="section-title" data-id="Soft Skills" data-en="Soft Skills">Soft Skills</h2>
+        </div>
+        <div class="soft-grid">
+          <div class="soft-item"><span class="soft-dot"></span>Leadership</div>
+          <div class="soft-item"><span class="soft-dot"></span>Public Speaking</div>
+          <div class="soft-item"><span class="soft-dot"></span>Problem Solving</div>
+          <div class="soft-item"><span class="soft-dot"></span>Team Work</div>
+          <div class="soft-item"><span class="soft-dot"></span><span data-id="Manajemen Waktu" data-en="Time Management">Manajemen Waktu</span></div>
+          <div class="soft-item"><span class="soft-dot"></span><span data-id="Bahasa Inggris" data-en="English">Bahasa Inggris</span></div>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+  </div><!-- /body-grid -->
+
+  <!-- FOOTER -->
+  <div class="footer-strip">
+    <p>// andri.mariyanto@gmail.com — Bekasi, Jawa Barat</p>
+    <div class="status">
+      <span class="pulse"></span>
+      <span data-id="Terbuka untuk Peluang Baru" data-en="Open to New Opportunities">Terbuka untuk Peluang Baru</span>
+    </div>
+  </div>
+
+</div>
+
+  <!-- LANGUAGE TOGGLE -->
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-id" onclick="setLang('id')">
+      <span class="flag">🇮🇩</span>ID
+    </button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">
+      <span class="flag">🇬🇧</span>EN
+    </button>
+  </div>
+
+  <!-- DOWNLOAD PDF BUTTON -->
+  <button class="download-btn" onclick="downloadPDF()" title="Download CV sebagai PDF">
+    <span class="btn-ping"></span>
+    <span class="btn-icon">⬇</span>
+    <span data-id="Download PDF" data-en="Download PDF">Download PDF</span>
+  </button>
+
+  <script>
+    // ============ TRANSLATION DATA ============
+    const profileText = {
+      id: 'Profesional IT dan Automation System Engineer dengan pengalaman lebih dari 16 tahun di industri manufaktur kelas dunia. Berkarier di <strong style="color:#fff">PT Unilever Indonesia</strong> selama 14+ tahun dalam berbagai peran progresif — dari Electrical Technician, Maintenance Automation Specialist, IT Support Engineer, hingga Automation System Engineer. Juga berpengalaman di <strong style="color:#fff">Samsung Electronics Indonesia</strong> dan <strong style="color:#fff">Kalbe Farma</strong>. Memiliki keahlian mendalam dalam MES, AGV logistics automation, server virtualization (VMware), LAN infrastructure, web-based systems, dan troubleshooting teknis di lingkungan enterprise manufaktur.',
+      en: 'IT Professional and Automation System Engineer with over 16 years of experience in world-class manufacturing industries. Built a progressive career at <strong style="color:#fff">PT Unilever Indonesia</strong> for 14+ years across multiple roles — from Electrical Technician, Maintenance Automation Specialist, IT Support Engineer, to Automation System Engineer. Also gained experience at <strong style="color:#fff">Samsung Electronics Indonesia</strong> and <strong style="color:#fff">Kalbe Farma</strong>. Possesses deep expertise in MES, AGV logistics automation, server virtualization (VMware), LAN infrastructure, web-based systems, and technical troubleshooting within enterprise manufacturing environments.'
+    };
+
+    const jobBullets = {
+      'job-ul-1': {
+        id: [
+          'Mengawasi anggota tim dalam proyek pengembangan sistem dan otomasi logistik',
+          'Mengelola dan mengoptimalkan Manufacturing Execution Systems (MES) dan sistem produksi lainnya',
+          'Mengembangkan dan memelihara aplikasi berbasis web dan database untuk mendukung operasional manufaktur',
+          'Mengembangkan dan meningkatkan kendaraan otonom (AGV) untuk otomasi logistik di area produksi',
+          'Memantau dan mengoptimalkan integrasi sistem antara automation system, server, dan infrastruktur jaringan',
+          'Mengelola dan memelihara infrastruktur jaringan LAN serta konfigurasi IP di gedung produksi',
+          'Mendukung manajemen keamanan IT dan hak akses sistem',
+          'Menyiapkan laporan mingguan dan bulanan terkait perbaikan sistem, infrastruktur, dan otomasi'
+        ],
+        en: [
+          'Supervising team members in system development and logistics automation projects',
+          'Managing and optimizing Manufacturing Execution Systems (MES) and other production systems',
+          'Developing and maintaining web-based applications and databases to support manufacturing operations',
+          'Developing and improving autonomous vehicles (AGV) for logistics automation in production areas',
+          'Monitoring and optimizing system integration between automation systems, servers, and network infrastructure',
+          'Managing and maintaining LAN network infrastructure and IP configuration in the production building',
+          'Supporting IT security management and system access permissions',
+          'Preparing weekly and monthly reports related to system, infrastructure, and automation improvements'
+        ]
+      },
+      'job-ul-2': {
+        id: [
+          'Memelihara dan melakukan troubleshooting hardware dan software komputer yang digunakan di area produksi',
+          'Mengelola dan mendukung infrastruktur jaringan LAN serta konfigurasi alamat IP di area produksi',
+          'Memantau dan memelihara local web server dan database server untuk menjaga stabilitas sistem',
+          'Memberikan dukungan teknis kepada pengguna terkait masalah sistem, jaringan, dan aplikasi',
+          'Mendukung manajemen keamanan IT, termasuk izin software dan akses pengguna',
+          'Membantu pemeliharaan dan optimalisasi sistem IT produksi',
+          'Menyiapkan laporan berkala terkait performa sistem dan status infrastruktur'
+        ],
+        en: [
+          'Maintaining and troubleshooting computer hardware and software used in production',
+          'Managing and supporting LAN network infrastructure and IP address configuration in production area',
+          'Monitoring and maintaining local web servers and database servers to ensure system stability',
+          'Providing technical support for users related to system, network, and application issues',
+          'Supporting IT security management, including software permissions and user access',
+          'Assisting in the maintenance and optimization of production IT systems',
+          'Preparing periodic reports related to system performance and infrastructure status'
+        ]
+      },
+      'job-ul-3': {
+        id: [
+          'Melakukan perawatan rutin untuk mencegah kerusakan mesin dan downtime produksi',
+          'Menganalisis dan mengidentifikasi akar penyebab masalah mesin untuk penyelesaian permanen',
+          'Memantau kondisi dan performa mesin selama beroperasi',
+          'Memeriksa dan mengganti spare part sesuai jadwal perawatan',
+          'Mencatat dan melaporkan aktivitas perawatan dan perbaikan mesin'
+        ],
+        en: [
+          'Performing routine maintenance to prevent machine damage and production downtime',
+          'Analyzing and identifying root causes of machine problems for permanent resolution',
+          'Monitoring machine condition and performance during operation',
+          'Checking and replacing necessary spare parts as per maintenance schedule',
+          'Recording and reporting machine maintenance and repair activities'
+        ]
+      },
+      'job-ul-4': {
+        id: [
+          'Maintenance dan troubleshooting software dan hardware skala enterprise',
+          'Instalasi sistem operasi, aplikasi, dan pembaruan perangkat lunak',
+          'Monitoring performa sistem dan jaringan untuk kelangsungan operasional',
+          'Backup data dan memastikan keamanan sistem sesuai kebijakan perusahaan',
+          'Keahlian: Industrial Automation · Electrical Engineering'
+        ],
+        en: [
+          'Maintenance and troubleshooting of enterprise-scale software and hardware',
+          'Installing operating systems, applications, and software updates',
+          'Monitoring system and network performance to ensure operational continuity',
+          'Backing up data and ensuring system security in line with company policy',
+          'Expertise: Industrial Automation · Electrical Engineering'
+        ]
+      },
+      'job-ul-5': {
+        id: [
+          'Perawatan dan perbaikan hardware komputer dan perangkat IT',
+          'Troubleshooting kerusakan perangkat keras secara sistematis',
+          'Bekerja sebagai Teknisi Jaringan dan Pemeliharaan PC',
+          'Memberikan dukungan teknis kepada pengguna internal perusahaan'
+        ],
+        en: [
+          'Maintaining and repairing computer hardware and IT equipment',
+          'Systematically troubleshooting hardware failures',
+          'Working as a Network Technician and PC Maintenance specialist',
+          'Providing technical support to internal company users'
+        ]
+      },
+      'job-ul-6': {
+        id: [
+          'Bekerja sebagai Teknisi sekaligus Operator Mesin Blister Injection',
+          'Mengoperasikan mesin produksi sesuai standar kualitas internasional',
+          'Melakukan Quality Control (QC) pada mesin dan hasil produksi',
+          'Memastikan mesin berjalan aman (safety) dan sesuai prosedur kerja',
+          'Mengidentifikasi dan melaporkan potensi kerusakan atau ketidaksesuaian kualitas'
+        ],
+        en: [
+          'Worked as both Technician and Operator for the Blister Injection Machine',
+          'Operating production machines according to international quality standards',
+          'Performing Quality Control (QC) on machines and production output',
+          'Ensuring machines run safely and according to standard work procedures',
+          'Identifying and reporting potential damage or quality non-conformities'
+        ]
+      }
+    };
+
+    function renderBullets(lang) {
+      for (const ulId in jobBullets) {
+        const ul = document.getElementById(ulId);
+        if (!ul) continue;
+        ul.innerHTML = jobBullets[ulId][lang].map(item => `<li>${item}</li>`).join('');
+      }
+    }
+
+    function setLang(lang) {
+      // Toggle active button state
+      document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Swap all elements with data-id / data-en attributes
+      document.querySelectorAll('[data-id][data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+
+      // Swap profile text
+      const profileEl = document.getElementById('profile-text');
+      if (profileEl) profileEl.innerHTML = profileText[lang];
+
+      // Swap job bullet lists
+      renderBullets(lang);
+
+      // Remember preference
+      try { localStorage.setItem('cv-lang', lang); } catch(e) {}
+    }
+
+    // Initialize on load (default Indonesian, but respect stored preference if available)
+    (function initLang() {
+      let initial = 'id';
+      try {
+        const stored = localStorage.getItem('cv-lang');
+        if (stored === 'en' || stored === 'id') initial = stored;
+      } catch(e) {}
+      setLang(initial);
+    })();
+
+    function downloadPDF() {
+      const btn = document.querySelector('.download-btn');
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'id';
+      const preparingText = lang === 'en' ? 'Preparing...' : 'Menyiapkan...';
+      const downloadText = lang === 'en' ? 'Download PDF' : 'Download PDF';
+      btn.innerHTML = '<span class="btn-ping"></span><span class="btn-icon">⏳</span><span>' + preparingText + '</span>';
+      setTimeout(() => {
+        window.print();
+        btn.innerHTML = '<span class="btn-ping"></span><span class="btn-icon">⬇</span><span>' + downloadText + '</span>';
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>
